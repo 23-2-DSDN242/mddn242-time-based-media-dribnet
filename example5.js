@@ -19,6 +19,10 @@ function draw_clock(obj) {
     noStroke();
     fill(255);
     rect(startX, 200, 100, 20);
+
+    fill(0);
+    textSize(40);
+    text(secondsResetsAfterFive, 100, 100)
 }
 
 function draw_clock2(obj) {
