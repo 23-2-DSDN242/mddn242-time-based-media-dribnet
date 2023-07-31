@@ -18,36 +18,16 @@ function draw_clock(obj) {
   let millis = obj.millis;
   let alarm = obj.seconds_until_alarm;
 
-  let background_color = 50;
-
-  if(alarm > 0 && alarm < 5) {
-    background_color = map(alarm, 5, 0, 50, 240);
-  }
-  else if(alarm == 0) {
-    if(millis < 500) {
-      background_color = map(millis, 0, 500, 0, 200);
-    }
-    else {
-      background_color = map(millis, 500, 1000, 200, 0);
-    }
-  }
-  // background_color = 200;
-
-  background(background_color);
+  background(50); //  beige
   fill(200); // dark grey
   textSize(40);
   textAlign(CENTER, CENTER);
 
-  let max_val = TWO_PI;
-  if(alarm == 0) {
-    max_val = 3 * TWO_PI;
-  }
-
-  let bounce1 = map(obj.millis, 0, 999, 0, max_val);
+  let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
   let phase1 = sin(bounce1);
   let y_bounce1 = map(phase1, -1, 1, -75, 75);
 
-  let bounce2 = map((obj.millis+100), 0, 999, 0, max_val);
+  let bounce2 = map((obj.millis+100), 0, 999, 0, TWO_PI);
   let phase2 = sin(bounce2);
   let y_bounce2 = map(phase2, -1, 1, -75, 75);
 
